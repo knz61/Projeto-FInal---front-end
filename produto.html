@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Loja</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">Loja Virtual</div>
+            <ul class="menu">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="index.html">Produtos</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="produto-detalhes">
+            <h1 id="produto-nome"></h1>
+            <div class="produto-container">
+                <img id="produto-imagem" src="" alt="">
+                <div class="descricao">
+                    <p id="produto-descricao"></p>
+                    <p><strong>Preço:</strong> <span id="produto-preco"></span></p>
+                    <button class="btn">Comprar Agora</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-links">
+            <h5>Informações</h5>
+            <a href="https://www.instagram.com/kauancerrano/" target="_blank">Instagram</a>
+            <a href="https://github.com/knz61" target="_blank">GitHub</a>
+            <br>
+           
+        </div>
+        <p>&copy; kzn.bsb - Todos os direitos reservados.</p>
+        <p>Direitos reservados de :
+            Kauan Cerrano Brandão<br>
+            
+        </p>
+    </footer>
+
+    <script>
+        
+        const produtos = {
+            1: {
+                nome: "Air Jordan low Black Phantom",
+                descricao: "O Air Jordan 1 Low Black Phantom combina elegância e estilo urbano com um cabedal preto em couro e camurça, detalhes minimalistas e o icônico logotipo Jumpman. Versátil e moderno, é perfeito para qualquer ocasião.",
+                imagem: "produto1.jpg", 
+                preco: "R$ 449,90"
+            },
+            2: {
+                nome: "Air Max Plus TN 1 “Pimento”",
+                descricao: "O Air Max Plus TN 1 Pimento traz um visual ousado com tons vibrantes de vermelho Pimento e preto, destacando o icônico design ondulado do cabedal. Confortável e cheio de atitude, é perfeito para quem busca estilo e performance.",
+                imagem: "produto2.jpg", 
+                preco: "R$ 389,90"
+            },
+            3: {
+                nome: "Air Jordan 4 “Bred”",
+                descricao: "O Air Jordan 4 Bred é um clássico atemporal que combina o cabedal preto em nobuck com detalhes em cinza, branco e vermelho. Icônico e versátil, é sinônimo de estilo e herança no basquete.",
+                imagem: "produto3.jpg",
+                preco: "R$ 549,90"
+            },
+            4: {
+                nome: "Air Force 1",
+                descricao: "O Air Force 1 é um ícone atemporal com design clean e versátil, apresentando cabedal em couro premium, solado robusto e a icônica entressola Air. Um clássico que transcende gerações e estilos.",
+                imagem: "produto4.jpg",
+                preco: "R$ 499,90"
+            },
+           
+        };
+    
+       
+        const params = new URLSearchParams(window.location.search);
+        const id = params.get("id");
+    
+        
+        if (produtos[id]) {
+            document.getElementById("produto-nome").textContent = produtos[id].nome;
+            document.getElementById("produto-descricao").textContent = produtos[id].descricao;
+            document.getElementById("produto-imagem").src = produtos[id].imagem; 
+            document.getElementById("produto-imagem").alt = produtos[id].nome; 
+            document.getElementById("produto-preco").textContent = produtos[id].preco;
+        } else {
+            document.querySelector(".produto-detalhes").innerHTML = "<h1>Produto não encontrado</h1>";
+        }
+    </script>
+</body>
+</html>
